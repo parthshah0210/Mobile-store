@@ -1,0 +1,60 @@
+extends layout
+
+include _includes/_AdditionalFunctions
+
+block content
+
+  .row.row_margin_display
+    .display
+      .left-column
+        .img_display
+          img(data-image='black' src='images/pro_black.jpeg' alt='')
+          img.active(data-image='blue' src='images/pro_blue.jpeg' alt='')
+          img(data-image='yellow' src='images/pro_gold.jpeg' alt='')
+      
+      .right-column
+        .product-description
+          h1 Iphone 13 Pro
+          .product-price.mt-4
+            span(data-price= 'blue') $1589.00
+            span(data-price= 'yellow') $1789.00
+            span.active(data-price= 'black') $1689.00
+            
+
+          .row(style="margin-top:24px") &nbsp; 
+            +outputRating(5)
+            h6 &nbsp; (5043 reviews)
+          p
+            | This mobile has 5G unlocked IOS Smartphone U.S Version, 120Hz Fulid Display, 8 MP Front Camera + 12 MP Rear Camera, 65W altra fast charge
+        
+        .product-configuration
+          
+          .product-color
+            span Color
+            .color-choose
+                div
+                  input#blue(data-image='blue' type='radio' name='color' value='blue' checked='')
+                  label(for='blue')
+                    span
+                div
+                  input#yellow(data-image='yellow' type='radio' name='color' value='yellow')
+                  label(for='yellow')
+                    span
+                div
+                  input#black(data-image='black' type='radio' name='color' value='black')
+                  label(for='black')
+                    span
+
+          .stock-config.mb-5
+            span(data-stock= 'blue') Available In Stock : 420
+            span(data-stock= 'yellow') Available In Stock : 540
+            span.active(data-stock= 'black') Available In Stock : 350
+                    
+          .rom-config.border_bottom
+            span Storage Capacity
+            .rom-choose
+              button 64 GB
+              button 128 GB
+              button 256 GB
+
+        a.cart-btn(href='#') Buy Now

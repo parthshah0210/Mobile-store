@@ -1,0 +1,69 @@
+extends layout
+
+include _includes/_AdditionalFunctions
+
+block content
+  .row.row_margin_display
+    .display
+      .left-column
+        .img_display
+          each color in currentMobile.colors
+            if color.color == currentMobile.colors[0].color 
+              img.active(data-image=color.color src=`/images/${color.img}` alt='')
+            else  
+              img(data-image=color.color src=`/images/${color.img}` alt='')
+      
+      .right-column
+        .product-description
+          h1 #{currentMobile.name}
+          .product-price.mt-4
+            each price in currentMobile.colors
+              if price.color == currentMobile.colors[0].color 
+                span.active(data-price= price.color) #{price.price}
+              else 
+                span(data-price= price.color) #{price.price}
+
+          .row(style="margin-top:24px") &nbsp; 
+            +outputRating(currentMobile.rating)
+            h6 &nbsp; (#{currentMobile.reviews} reviews)
+          p
+            | This mobile has 5G unlocked #{currentMobile.os} Smartphone U.S Version, 120Hz Fulid Display, #{currentMobile.fCamResolution} Front Camera + #{currentMobile.rCamResolution} Rear Camera, 65W altra fast charge
+        
+        .product-configuration
+          
+          .product-color
+            span Color
+            .color-choose
+                each color in currentMobile.colors
+                    if color.index == 0 
+                        div
+                            input(id=color.color data-image=color.color type='radio' name='color' value=color.color)
+                            label(for=color.color)
+                                span(style=`background-color:${color.color}`)
+                    else 
+                        div
+                            input(id=color.color data-image=color.color type='radio' name='color' value=color.color)
+                            label(for=color.color)
+                                span(style=`background-color:${color.color}`)
+          .stock-config
+            each stock in currentMobile.colors
+              if stock.color == currentMobile.colors[0].color
+                span.active(data-stock= stock.color) Available In Stock : #{stock.availablestock}
+              else 
+                span(data-stock= stock.color) Available In Stock : #{stock.availablestock}
+          
+          .ram-config.mt-5
+            span RAM
+            .ram-choose
+                each ram in currentMobile.ram
+                    button #{ram}
+            
+
+          .rom-config.border_bottom
+            span Storage Capacity
+            .rom-choose
+              each rom in currentMobile.rom
+                button #{rom}
+
+        a.cart-btn(href='#') Buy Now
+  

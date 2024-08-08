@@ -1,0 +1,29 @@
+extends layout
+
+include _includes/_AdditionalFunctions
+
+block content
+  .row
+    a.addnew.float-right(href='/new') + Add new
+  .row.row_margin
+    each product in Data
+      .col-4.col-md-4
+        .card.m-2
+          .card-block
+            .row.p-2
+              a(href=`/mobile-info/${product._id}`)
+                img.img-fluid.rounded.me-2.mobile_img(src=`/images/${product.img}`)
+                
+            .row
+              h4.mx-2
+                a(href=`/mobile-info/${product._id}`) #{product.name} - #{product.rom[0]}  - #{product.colors[0].color}
+            .row &nbsp; 
+                +outputRating(product.rating)
+                h6 &nbsp; (#{product.reviews} reviews)
+            .row 
+                h4.font-weight-bold.mx-2 #{product.colors[0].price}
+            .row-fluid
+              .span12.text-center
+                h4.mx-2.p-2
+                  span.badge.badge-pill.badge-default
+                    a(href=`/mobile-info/${product._id}`,style="color:white") Buy now

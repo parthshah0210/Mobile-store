@@ -1,0 +1,87 @@
+extends layout
+
+block content
+  form(action="", method="post")
+    .container
+     .row(style="padding-top:50px;width:900px;margin-left:-181px")
+        .col-25
+            label(for='name') Name
+        .col-75
+            input.feedback-input(name='name' type='text' required)
+        
+        .col-25    
+            label(for='ram') Ram
+        .col-75.checkboxram
+            input.ram#ram1(type='checkbox' name='ram1' value='4 GB' )
+            label(for='ram1') 4 GB
+            input.ram#ram2(type='checkbox' name='ram2' value='8 GB' )
+            label(for='ram2') 8 GB
+            input.ram#ram3(type='checkbox' name='ram3' value='12 GB' )
+            label(for='ram3') 12 GB
+            input#ram(type="hidden" name='ram' value='') 
+            span#ramerror(style="color:red")  
+
+        .col-25    
+            label(for='rom') Storage
+        .col-75.checkboxram
+            input.rom#rom1(type='checkbox' name='rom1' value='64 GB' )
+            label(for='rom1') 64 GB
+            input.rom#ram2(type='checkbox' name='rom2' value='128 GB' )
+            label(for='rom2') 128 GB
+            input.rom#ram3(type='checkbox' name='rom3' value='256 GB' )
+            label(for='rom3') 256 GB
+            input.rom#ram4(type='checkbox' name='rom4' value='512 GB')
+            label(for='rom4') 512 GB
+            input#rom(type="hidden" name='rom' value='')
+            span#romerror(style="color:red") 
+
+        .col-25
+            label(for='os') Os
+        .col-75
+            input.feedback-input(name='os' type='text' required)
+        
+        .col-25    
+            label(for='fcr') Front camera 
+        .col-75
+            input.feedback-input(name='fCamResolution' type='text' required)
+
+        .col-25    
+            label(for='rcr') Rear camera 
+        .col-75
+            input.feedback-input(name='rCamResolution' type='text' required)
+
+        .col-25    
+            label(for='color') Colors
+        .col-75
+            input#colors.feedback-input(name='color' type='text' required)        
+            
+        .col-25    
+            label(for='stocks') Available stocks
+        .col-75
+            input#stocks.feedback-input(name='stocks' type='text' required) 
+            span#stockerror(style="color:red")
+              
+        .col-25    
+            label(for='price') Prices
+        .col-75
+            input#prices.feedback-input(name='price' type='text' required) 
+            span#priceerror(style="color:red")   
+
+        .col-25    
+            label(for='reviews') Reviews
+        .col-75
+            input.feedback-input(name='reviews' type='text' required)
+            
+        
+        .col-25    
+            label(for='rating') Rating
+        .col-75
+            input.feedback-input(name='rating' type='number' min="1" max="5" required)                      
+
+        .col-25
+            label(for='img') Upload an Image
+        .col-75
+            input#images.feedback-input(name='img' type='text' required)
+            span#imageerror(style="color:red")
+
+        input#btnsubmit(type='submit' value='SUBMIT')

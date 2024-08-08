@@ -1,0 +1,8 @@
+mixin outputRating(rating)
+  - for(let i=1; i<=rating; i++)
+    if(i==1)
+        i.ml-2.fa.fa-star
+    else
+        i.fa.fa-star
+  - for(let i=rating; i<5; i++)
+    i.fa.fa-star-o
